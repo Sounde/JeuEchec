@@ -36,6 +36,10 @@ public class Game {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date game_time;
 	
+	@OneToOne
+	@JoinColumn(name = "user_id")
+	private User user_turn;
+	
 	@Column
 	@ManyToMany(mappedBy = "games")
 	private List<User> players = new ArrayList<>();
@@ -43,5 +47,61 @@ public class Game {
 	@OneToOne
 	@JoinColumn(name = "board_id")
 	private Board board;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getEtat() {
+		return etat;
+	}
+
+	public void setEtat(int etat) {
+		this.etat = etat;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public Date getGame_time() {
+		return game_time;
+	}
+
+	public void setGame_time(Date game_time) {
+		this.game_time = game_time;
+	}
+
+	public User getUser_turn() {
+		return user_turn;
+	}
+
+	public void setUser_turn(User user_turn) {
+		this.user_turn = user_turn;
+	}
+
+	public List<User> getPlayers() {
+		return players;
+	}
+
+	public void setPlayers(List<User> players) {
+		this.players = players;
+	}
+
+	public Board getBoard() {
+		return board;
+	}
+
+	public void setBoard(Board board) {
+		this.board = board;
+	}
 	
 }
