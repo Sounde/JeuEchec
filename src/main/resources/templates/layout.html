@@ -1,5 +1,5 @@
 <html xmlns:th="http://www.thymeleaf.org"
-	th:fragment="layout (title, accueil)">
+	th:fragment="layout (title, accueil, register)">
 <head>
 <title th:replace="${title}">Jeu Echec</title>
 <meta charset="utf-8">
@@ -13,5 +13,6 @@
 </head>
 <body>
 	<div th:replace="${accueil}"></div>
+	<div th:replace="${register}"></div>
 </body>
 </html>
