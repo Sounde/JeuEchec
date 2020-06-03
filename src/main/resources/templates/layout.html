@@ -1,7 +1,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	th:fragment="layout (title, content)">
 <head>
-<title>Bootstrap Example</title>
+<title th:replace="${title}">Jeu Echec</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -15,10 +15,10 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Jeu Echec</a>
+				<a class="navbar-brand active" href="#">Jeu Echec</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Profile</a></li>
+				<li><a href="#">Profile</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
@@ -27,18 +27,13 @@
 		</div>
 
 	</nav>
-	<div class="row">
-		<div class="col-sm-2" style="background-color: yellow;">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-			eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-			nisi ut aliquip ex ea commodo consequat.
-		</div>
-	</div>
-	<div class="container">
-		<h3>Jeu echec</h3>
-		<p>An inverted navbar is black instead of gray.</p>
-	</div>
+	<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3" style="background-color:lightgrey;text-align:center;"><h2>Historique des parties</h2></div>
+    <div class="col-md-6" style="text-align:center;"><h2>Jouer</h2></div>
+    <div class="col-md-3" style="background-color:lightgrey;text-align:center;"><h2>Liste d'amis</h2></div>
+  </div>
+</div>
 
 </body>
 </html>
