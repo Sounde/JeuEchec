@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface jeuEchecRepository {
+public interface JeuEchecRepository {
 
 }
-
