@@ -7,5 +7,5 @@ import fr.yncrea.cir3.jeuEchec.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    public User findByPassword(String Password);
+	public User findByUsername(String username);
 }

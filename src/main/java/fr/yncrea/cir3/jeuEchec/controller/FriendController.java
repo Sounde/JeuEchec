@@ -33,8 +33,7 @@ public class FriendController {
 	@PostMapping("/add")
 	public String addForm(@ModelAttribute UserForm form) {
 		User f = new User();
-		f.setLast_name(form.getLast_name());
-		f.setFirst_name(form.getFirst_name());
+		f.setUsername(form.getUsername());
 		friends.save(f);
 		return "redirect:friend/list";
 	}
