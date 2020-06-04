@@ -25,26 +25,28 @@
 			</legend>
 
 
-			<form action="#" th:action="@{/Identify/register}"
-				th:object="${user}" method="post">
+			<form action="#" th:action="@{/Identify/register}"th:object="${user}" method="post">
 				<input type="hidden" th:field="*{id}" />
 				<div class="form-group">
-					<label for="last_name">Nom</label> <input type="text"
+					<label for="last_name">Nom</label> 
+					<input type="text"
 						class="form-control" id="last_name" name="last_name"
 						placeholder="Last name" th:field="*{last_name}">
 					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}">Mauvais</div>
+						th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}">Mauvais Nom</div>
 				</div>
 				<div class="form-group">
-					<label for="first_name">First name</label> <input type="text"
+					<label for="first_name">First name</label> 
+					<input type="text"
 						class="form-control" id="first_name" name="first_name"
 						placeholder="first_name" th:field="*{first_name}">
 					<div class="alert alert-danger"
 						th:if="${#fields.hasErrors('first_name')}"
-						th:errors="*{first_name}">Mauvais prénom</div>
+						th:errors="*{first_name}">Mauvais prenom</div>
 				</div>
 				<div class="form-group">
-					<label for="email">Email</label> <input type="text"
+					<label for="email">Email</label> 
+					<input type="text"
 						class="form-control" id="email" name="email" placeholder="email"
 						th:field="*{email}">
 					<div class="alert alert-danger"
@@ -52,7 +54,8 @@
 						Email</div>
 				</div>
 				<div class="form-group">
-					<label for="password">Mot de passe</label> <input type="password"
+					<label for="password">Mot de passe</label> 
+					<input type="password"
 						class="form-control" id="password" name="password"
 						placeholder="Mot de Passe" th:field="*{password}">
 					<div class="alert alert-danger"

@@ -34,11 +34,12 @@ public class UserController {
 	@PostMapping("/login")
 	public String log(@ModelAttribute("user") UserForm form, BindingResult result, Model model)
 	{
+		User u = user.findByPassword(form.getPassword());
 		if(form.getPassword() != null && form.getLast_name() != null)
 		{
 			if(user.findByPassword(form.getPassword()) != null )
 			{
-				return "redirect:/Identify/register";
+				return "redirect:/"+ u.getId();
 			}
 
 
