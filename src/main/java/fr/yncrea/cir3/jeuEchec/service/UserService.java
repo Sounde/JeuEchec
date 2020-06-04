@@ -21,8 +21,7 @@ public class UserService {
 		}
 
 		form.setId(user.getId());
-		form.setLast_name(user.getLast_name());
-		form.setFirst_name(user.getFirst_name());
+		form.setUsername(user.getUsername());
 		form.setEmail(user.getEmail());
 		form.setPassword(user.getPassword());
 
@@ -35,8 +34,7 @@ public class UserService {
 			user = new User();
 		}
 
-		user.setLast_name(form.getLast_name());
-		user.setFirst_name(form.getFirst_name());
+		user.setUsername(form.getUsername());
 		user.setEmail(form.getEmail());
 		user.setPassword(form.getPassword());
 

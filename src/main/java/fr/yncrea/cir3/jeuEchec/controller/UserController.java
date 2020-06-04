@@ -1,6 +1,8 @@
 package fr.yncrea.cir3.jeuEchec.controller;
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,20 +32,21 @@ public class UserController {
 	public String login() {
 		return "/Identify/login";
 	}
-
+	/*
 	@PostMapping("/login")
-	public String log(@ModelAttribute("user") UserForm form, BindingResult result, Model model)
+	public String log(@Valid @ModelAttribute("user") UserForm form, BindingResult result, Model model)
 	{
-		User u = user.findByPassword(form.getPassword());
+		User u = user.findByUsername(form.getPassword());
 		if(form.getPassword() != null && form.getLast_name() != null)
 		{
-			if(user.findByPassword(form.getPassword()) != null )
+			if(user.findByPassword(form.getPassword()) == user.findByPassword(form.getLast_name()) )
 			{
 				return "redirect:/"+ u.getId();
 			}
 		}
 		return "redirect:/Identify/login";
 	}
+	*/
 
 	@GetMapping("/register")
 	public String edit( Model model) {
@@ -52,17 +55,16 @@ public class UserController {
 	}
 
 	@PostMapping("/register")
-	public String addForm(@ModelAttribute("user") UserForm form, BindingResult result, Model model) {
+	public String addForm(@Valid @ModelAttribute("user") UserForm form, BindingResult result, Model model) {
 		User u = new User();
 		if (result.hasErrors()) {
 			model.addAttribute("user", form);
 			return "/Identify/register";
 		}
-		if(user.findByPassword(form.getPassword()) == null)
+		if(user.findByUsername(form.getPassword()) == null)
 		{
 			u.setPassword(form.getPassword());
-			u.setLast_name(form.getLast_name());
-			u.setFirst_name(form.getFirst_name());
+			u.setUsername(form.getUsername());
 			u.setEmail(form.getEmail());
 		}
 		else
