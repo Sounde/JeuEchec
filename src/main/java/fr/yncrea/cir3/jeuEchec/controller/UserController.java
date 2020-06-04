@@ -38,7 +38,7 @@ public class UserController {
 		{
 			if(user.findByPassword(form.getPassword()) != null )
 			{
-				return "redirect:/Identify/register";
+				return "redirect:/";
 			}
 			
 		}
