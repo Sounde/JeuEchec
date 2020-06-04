@@ -3,6 +3,7 @@ package fr.yncrea.cir3.jeuEchec.form;
 
 public class UserForm {
 
+
 	private Long id;
 
 	private String last_name;

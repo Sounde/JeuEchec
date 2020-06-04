@@ -41,6 +41,7 @@ public class UserController {
 				return "redirect:/Identify/register";
 			}
 
+
 		}
 		return "redirect:/Identify/login";
 	}
