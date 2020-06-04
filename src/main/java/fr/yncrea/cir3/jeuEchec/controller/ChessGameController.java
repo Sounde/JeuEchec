@@ -40,6 +40,27 @@ public class ChessGameController {
 	@Autowired
 	private PawnRepository allpawns;
 	
+	@GetMapping("/board/{id_j1}/{id_j2}/{id_g}")
+	public String board(Model model,@PathVariable("id_j1") Long id_j1,@PathVariable("id_j2") Long id_j2,@PathVariable("id_g") Long id_g) {
+		Optional<User> j1OP = users.findById(id_j1);
+		Optional<User> j2OP = users.findById(id_j2);
+		Optional<Game> gOP = games.findById(id_g);
+		
+		User joueur1 = j1OP.get();
+		User joueur2 = j2OP.get();
+		Game game = gOP.get();
+		
+		User joueur_turn = game.getUser_turn();
+		model.addAttribute("joueur1",joueur1);
+		model.addAttribute("joueur2",joueur2);
+		model.addAttribute("joueur2",joueur2);
+		model.addAttribute("game",game);
+		model.addAttribute("joueur_turn",joueur_turn);
+		
+		
+		return "board"; 
+	}
+	
 	@GetMapping("/create/{id_user}")
 	public String create(Model model, @PathVariable("id_user") Long id_user) {
 		Optional<User> j1OP = users.findById(id_user);
@@ -57,11 +78,18 @@ public class ChessGameController {
 		Optional<User> j1OP = users.findById(form.getId_joueur1());
 		Optional<User> j2OP = users.findById(form.getId_joueur2());
 		
+		List<Game> gamej1= new ArrayList<>();
+		List<Game> gamej2= new ArrayList<>();
+		
+		
 		User joueur1 = j1OP.get();
 		User joueur2 = j2OP.get();
 		List<User> joueurs = new ArrayList<>();
 		joueurs.add(joueur1);
 		joueurs.add(joueur2);
+		
+		
+		
 		
 		
 		Game g = new Game();
@@ -83,14 +111,29 @@ public class ChessGameController {
 		
 		g.setBoard(b);
 		
+		gamej1 = joueur1.getGames();
+		gamej2 = joueur2.getGames();
+		
+		gamej1.add(g);
+		gamej2.add(g);
+		
+		joueur1.setGames(gamej1);
+		joueur2.setGames(gamej2);
+		
 		games.save(g);
 		boards.save(b);
+		users.save(joueur1);
+		users.save(joueur2);
+		
+		
+		
+		
 		
 		for(int i = 0; i<32; i++) {
 			allpawns.save(pawns.get(i));
 		}
 		
-		return "redirect:/chessgame/board/"+joueur1.getId()+"/"+joueur2.getId();
+		return "redirect:/chessgame/board/"+joueur1.getId()+"/"+joueur2.getId()+"/"+g.getId();
 	}
 	
 	
