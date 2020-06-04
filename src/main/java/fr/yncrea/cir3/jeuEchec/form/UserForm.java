@@ -2,14 +2,15 @@ package fr.yncrea.cir3.jeuEchec.form;
 
 
 public class UserForm {
-	
+
+
 	private Long id;
-	
+
 	private String last_name;
 	private String first_name;
 	private String email;
 	private String password;
-	
+
 	public String getPassword() {
 		return password;
 	}
@@ -40,5 +41,5 @@ public class UserForm {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 }

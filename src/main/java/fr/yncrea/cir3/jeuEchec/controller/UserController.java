@@ -20,17 +20,17 @@ import fr.yncrea.cir3.jeuEchec.repository.UserRepository;
 public class UserController {
 	@Autowired
 	private UserRepository user;
-	
+
 	/*
 	@Autowired
 	private PasswordEncoder encoder;
 	*/
-	
+
 	@GetMapping("/login")
 	public String login() {
 		return "/Identify/login";
 	}
-	
+
 	@PostMapping("/login")
 	public String log(@ModelAttribute("user") UserForm form, BindingResult result, Model model)
 	{
@@ -40,17 +40,18 @@ public class UserController {
 			{
 				return "redirect:/Identify/register";
 			}
-			
+
+
 		}
 		return "redirect:/Identify/login";
 	}
-	
+
 	@GetMapping("/register")
 	public String edit( Model model) {
 		model.addAttribute("user", new UserForm());
 		return "/Identify/register";
 	}
-	
+
 	@PostMapping("/register")
 	public String addForm(@ModelAttribute("user") UserForm form, BindingResult result, Model model) {
 		User u = new User();

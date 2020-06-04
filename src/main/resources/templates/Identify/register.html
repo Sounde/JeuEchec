@@ -1,5 +1,5 @@
 <html
-	th:replace="~{layout :: layout(~{::title}, ~{::accueil}, ~{::register})}"
+	th:replace="~{layout :: layout(~{::title}, ~{::accueil}, ~{::register}, ~{::friend})}"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <title th:fragment="title">Création du compte</title>
@@ -18,7 +18,12 @@
 			</div>
 
 		</nav>
-			<h1>Creation de compte</h1>
+
+		<div class="container">
+			<legend>
+				<h3>Creation de compte</h3>
+			</legend>
+
 
 			<form action="#" th:action="@{/Identify/register}"
 				th:object="${user}" method="post">
@@ -43,23 +48,27 @@
 						class="form-control" id="email" name="email" placeholder="email"
 						th:field="*{email}">
 					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Mauvaise Email</div>
+						th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Mauvaise
+						Email</div>
 				</div>
 				<div class="form-group">
 					<label for="password">Mot de passe</label> <input type="password"
 						class="form-control" id="password" name="password"
 						placeholder="Mot de Passe" th:field="*{password}">
 					<div class="alert alert-danger"
-						th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Mauvais mot de passe</div>
+						th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Mauvais
+						mot de passe</div>
 				</div>
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Creer</button>
+					<button type="submit" class="btn btn-primary">Créer</button>
+					<a href="/Identify/login" class="btn btn-info" role="button"
+						aria-pressed="true">Connexion</a>
 				</div>
 			</form>
-			<a href="/Identify/login" class="btn btn-secondary" role="button"
-				aria-pressed="true">Connexion</a>
-
 		</div>
-		<div th:fragment="accueil"></div>
+
+	</div>
+	<div th:fragment="accueil"></div>
+	<div th:fragment="friend"></div>
 </body>
 </html>
