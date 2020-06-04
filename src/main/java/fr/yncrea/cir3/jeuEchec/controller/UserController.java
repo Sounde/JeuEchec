@@ -41,8 +41,6 @@ public class UserController {
 			{
 				return "redirect:/"+ u.getId();
 			}
-
-
 		}
 		return "redirect:/Identify/login";
 	}
