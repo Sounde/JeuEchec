@@ -1,0 +1,53 @@
+<html
+	th:replace="~{layout :: layout(~{::title}, ~{::accueil}, ~{::register}, ~{::friend})}"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title th:fragment="title">Authentification</title>
+</head>
+<body>
+	<div th:fragment="register">
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">Jeu Echec</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/Identify/login">Connexion</a></li>
+					<li><a href="/Identify/register">Inscription</a></li>
+				</ul>
+
+			</div>
+
+		</nav>
+		<div class="container">
+			<form name="f" th:action="@{/Identify/login}" method="post">
+				<fieldset>
+					<legend>
+						<h3>Connexion au compte</h3>
+					</legend>
+					<div th:if="${param.error}" class="alert alert-error">Last
+						name and password are incorrect</div>
+					<div class="form-group">
+						<label for="username">Last_name</label> <input type="text"
+							class="form-control" id="last_name" name="last_name"
+							placeholder="last_name" autocomplete="off" />
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label> <input type="password"
+							class="form-control" id="password" name="password"
+							placeholder="Password" autocomplete="off" />
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary">Connexion</button>
+						<a th:href="@{/Identify/register}" class="btn btn-info"
+							role="button" aria-pressed="true">Inscription</a>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<div th:fragment="accueil"></div>
+	<div th:fragment="friend"></div>
+</body>
+</html>

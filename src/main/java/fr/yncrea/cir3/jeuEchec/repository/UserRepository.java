@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import fr.yncrea.cir3.jeuEchec.domain.User;
 
 @Repository
-public interface FriendRepository extends JpaRepository<User, Long> {
-
+public interface UserRepository extends JpaRepository<User, Long> {
+    public User findByPassword(String Password);
 }
