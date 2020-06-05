@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout (title, content)">
+	<head>
+		<!-- meta -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+		<!-- bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+		
+		
+		<!-- page title, will be replaced by given fragment -->
+		<title th:replace="${title}">Application Title</title>
+	</head>
+	<body>
+		<!-- our site will use bootstrap container layout -->
+		<div class="container">
+		
+			<div class="jumbotron" th:replace="${content}">
+				<!-- content to templace -->
+				<p>Layout page, content gets here !</p>
+			</div>
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	</body>
+</html>
