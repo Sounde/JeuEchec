@@ -31,6 +31,9 @@ public class Pawn {
 	@Column 
 	private int y;
 	
+	@Column 
+	private int is_king;
+	
 	@ManyToOne
 	private Board board;
 
@@ -88,5 +91,13 @@ public class Pawn {
 
 	public void setBoard(Board board) {
 		this.board = board;
+	}
+
+	public int getIs_king() {
+		return is_king;
+	}
+
+	public void setIs_king(int is_king) {
+		this.is_king = is_king;
 	}
 }
