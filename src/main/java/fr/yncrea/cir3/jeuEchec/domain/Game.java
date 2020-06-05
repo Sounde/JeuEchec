@@ -47,6 +47,9 @@ public class Game {
 	@OneToOne
 	@JoinColumn(name = "board_id")
 	private Board board;
+	
+	@Column
+	private Long user_win_id;
 
 	public Long getId() {
 		return id;
@@ -102,6 +105,14 @@ public class Game {
 
 	public void setBoard(Board board) {
 		this.board = board;
+	}
+
+	public Long getUser_win_id() {
+		return user_win_id;
+	}
+
+	public void setUser_win_id(Long user_win_id) {
+		this.user_win_id = user_win_id;
 	}
 	
 }
